@@ -1,12 +1,18 @@
 {
-  "name": "g-wardrobe",
+  "name": "g-variables",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "start": "npm run tauri:serve",
+    "web:serve": "ng serve -o",
+    "web:build": "ng build --base-href ./",
+    "web:dev": "npm run web:build",
+    "web:prod": "npm run web:build -- -c production",
+    "tauri": "tauri",
+    "tauri:serve": "tauri dev -- -- -- --port 9092",
+    "tauri:bundle": "tauri build",
+    "test": "ng test --watch=false",
+    "test:watch": "ng test"
   },
   "private": true,
   "dependencies": {
@@ -18,6 +24,7 @@
     "@angular/platform-browser": "^17.3.0",
     "@angular/platform-browser-dynamic": "^17.3.0",
     "@angular/router": "^17.3.0",
+    "@tauri-apps/api": "^1.5.3",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.3"
@@ -26,6 +33,7 @@
     "@angular-devkit/build-angular": "^17.3.2",
     "@angular/cli": "^17.3.2",
     "@angular/compiler-cli": "^17.3.0",
+    "@tauri-apps/cli": "^1.5.11",
     "@types/jasmine": "~5.1.0",
     "jasmine-core": "~5.1.0",
     "karma": "~6.4.0",
